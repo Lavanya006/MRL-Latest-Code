@@ -1,0 +1,1211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://cairnew.bcs.cnb/" targetNamespace="http://cairnew.bcs.cnb/">
+
+	<xs:element name="importCase" type="importCaseType"/>
+	<xs:element name="emailCorrespondence" nillable="true" type="emailType"/>
+	<xs:element name="importIssue" type="importIssueType"/>
+
+	<xs:complexType name="importCaseType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="CaseStatus" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="IDCAIRnew" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<!-- EQQKO, 2016-05-30: Changed to Person field -->
+			<xs:element name="AssignedTo" type="caseAddressListType">
+			</xs:element>
+			<xs:element name="PersonToContact" type="caseAddressListType">
+			</xs:element>
+			<xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="LeadProblem" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AdditionalProblem" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="TypeCAIRnew" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SubtypeCAIRnew" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CountryCaseHappened" type="xs:token" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="LeadProduct" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<!-- EQQKO, 2016-06-23: Added OriginalProduct for import from App and PDF; OriginalProduct2 is not needed since this field is not available in App and PDF -->
+			<xs:element name="OriginalProduct" type="xs:token" maxOccurs="1" minOccurs="0">
+				</xs:element>
+			<xs:element name="CountryLeadProduct" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="BatchLotNumber" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<!-- EMKQS, 2019-05-20: Added new data field UFI according to TWCAIRNEW-386 -->
+			<xs:element name="UFI" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PackSize" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PackSizeUnit" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DetailedDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+
+			<!-- ENWFI, 2016-12-12: Enabling Seed Problem Sub-Type and Other External ID for import (for CRM BR/CO) as per JIRA - TWCAIRNEW-177 -->
+
+			<xs:element type="xs:token" name="SeedProblemSubType" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element type="xs:string" name="OtherExternalId" maxOccurs="1" minOccurs="0"> </xs:element>
+
+
+			<xs:element name="DistributorRetailer" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="TreatedCropSystem" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="NonTargetImpacts" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SeverityEstimation" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="Attachments" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DateOfOccurrence" type="xs:date" minOccurs="0" maxOccurs="1">
+				</xs:element>
+			<!-- ENWFI, 2016-12-12: Enabling Date of Recommendation for import (for KWS interface) as per JIRA - TWCAIRNEW-345 -->
+			<xs:element name="DateOfRecommendation" type="xs:date" minOccurs="0" maxOccurs="1">
+
+			</xs:element>
+			<xs:element name="ReporterName" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DateFirstReportedToBayer" type="xs:date" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CommunicationComments" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TeamMembers" type="caseAddressListType" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="CAIRNewCountryManager" type="xs:token" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="ProblemTypeFromCRMPCC" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="OtherIdentifiedNumbers" type="xs:string" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ExternalSourceSystem" type="xs:string" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="RelatedIssues" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="RepetitiveCases" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CropFamily" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CropVariety" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="TypeOfPremises" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="TypeOfDamage" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DamageExceeding5000" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CouldDamageHaveCausedInj" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="LabelDirectionsFollowed" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="IntentionalMisuse" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ModeOfExposure" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="TaskCausingTheIncident" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ExposureSite" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="IntendedUseSite" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="GPSCoordinates" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ReporterContacted" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ContactDateReporter" type="xs:date" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SupplierContacted" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ContactDateSupplier" type="xs:date" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SupplierAddress" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="InspectedConditionOfCrop" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MagnitudeOfEffect" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CommentsOnEffectsEfficacy" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ResistanceSuspected" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ResistanceDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="IncompatibilitySuspected" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="IncompatibilityDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DescriptionOfIncidentSite" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DistanceTreatedIncidentSite" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureWildLife" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SymptomsOfWildLifeAnimal" type="xs:string" minOccurs="0" maxOccurs="1"> 
+			</xs:element>
+			<xs:element name="MagnitudeOfEffectWl" type="xs:string" minOccurs="0" maxOccurs="1"> 
+			</xs:element>
+			<xs:element name="DescriptionOfHabitat" type="xs:string" minOccurs="0" maxOccurs="1"> 
+			</xs:element>
+			<xs:element name="LocationOfDeadBeesFound" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="TotalNoOfColoniesInApiary" type="xs:integer" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="NumberOfAffectedHives" type="xs:integer" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="NumberOfDeadBeesFound" type="xs:integer" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="HistoryOfBeeKillsInArea" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="HistoryOfBeeKills" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="HivesExaminedForDiseases" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DiseasesFound" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DetailsOfInfectionInfest" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="TypeInfection" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="DegreeOfInfection" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="CommentOnInfection" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CaseInvestigationContacts" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ExternalInvestigation" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ExternalAttachments" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="InvestigationAttachments" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="FollowUpRequired" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+
+			<xs:element name="SoilType" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PercentOrganicMatterCarbon" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SoilMoistureWetness" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="FertilizerRegime" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="OpenerCoulter" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="RainfallAfterTreatment" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="FurtherCommentsWeather" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SourceOfWeatherInformation" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="GeneralWeatherInformation" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="WeatherAttachments" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AffectedPersonInformation" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="IdentifierName" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="Sex" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="AgeYears" type="xs:integer" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="Pregnant" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="BodyWeight" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitsOfMeasureBodyWeight" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="AffectedBodySystem" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="PPEUsed" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UseOfAlcoholDrugsChemicals" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="Characteristics" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Exposures" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="DateOfExposure" type="xs:date" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="DurationOfExposureDA" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element> 
+						<xs:element name="UnitsExposureDurationDA" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="RootWayOfExposure" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ExposureDetails" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ExposureDetailsList" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="IdentifierNameExp" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="DurationOfExposure" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitsExposureDuration" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="AmountOfPesticideExposed" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitsAmount" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ExposedDuringWork" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="WorkArea" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="DaysLost" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="HospitalizationNecessary" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="TypeOfMedicalCare" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DomesticAnimal" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="NameOfDomesticAnimal" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="BreedSpecies" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="TypeOfDomesticAnimal" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="NumberOfAffectedAnimals" type="xs:integer" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="NumberOfDeadAnimal" type="xs:integer" minOccurs="0" maxOccurs="1">
+						</xs:element>
+
+
+
+
+						<xs:element name="SexDA" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+
+						<xs:element name="AgeInYears" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+
+
+						<xs:element name="WeightDA" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+
+						<xs:element name="UnitDA" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SymptomsOfDomesticAnimal" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="OutcomeOfSymptomDA" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="TimeUntilOnsetOfSymptoms" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasOnsetSymp" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DurationOfSymptomDA" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitDurationSymptonDA" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MedicalTreatmentOfAnimal" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="HospitalizationOfAnimal" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="WildLifeDetails" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="NameOfWildLifeAnimal" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ScientificName" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="BreedSpeciesWildLife" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="TypeOfWildLifeAnimal" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="NumberOfAffectedAnimalsWL" type="xs:integer" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="NumberOfDeadAnimalsWL" type="xs:integer" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="BusinessSegments" type="xs:token" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="ProductIndication" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SpecifiedContent" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="FormulationType" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PackSizeAndType" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ActiveIngredients" type="xs:token" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="BayerProduct" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SearchstringLeadProd" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MaterialNumberPacked" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MaterialNumberUnpacked" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MaterialTextPacked" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MaterialTextUnpacked" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SpecificationNumber" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ProductRegistrationNumber" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ProductSampleComments" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ProductSampleTaken" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ProductBrandName2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SpecifiedContent2" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="FormulationType2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="BatchLotNumber2" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<!-- EMKQS, 2019-05-20: Added new data field UFI(2) according to TWCAIRNEW-386 -->
+			<xs:element name="UFI2" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PackSizeAndType2" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ActiveIngredients2" type="xs:token" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="BayerProduct2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SearchstringAddProd" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MaterialNumberPacked2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MaterialNumberUnpacked2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MaterialTextPacked2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MaterialTextUnpacked2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SpecificationNumber2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ProdRegistrationNumber2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ProductSampleComments2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ProductSampleTaken2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="FurtherProducts" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AttachmentsForProducts" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="FurtherCommentsOnProducts" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DepotName" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="Packaging" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="ProductReference" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="PackagingNumber" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="PackagingMaterialText" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="PackagingMaterialBatch" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="CauseOfProblem" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="FilledBy" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="FillingDate" type="xs:date" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CommentOnPackaging" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AttachementsForPackaging" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="FormulationDetails" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="ProductReference" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ComponentType" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ComponentNumber" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ComponentText" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ComponentBatchNumber" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ProducedBy" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ProductionDate" type="xs:date" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="SupplierOfRawMaterialAI" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="SupplierMaterialNumber" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DeliveryNumber" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+		<!-- EQQKO, 2017-10-20: Added DeliveryItem for import from GBT -->
+			<xs:element name="DeliveryItem" type="xs:token" maxOccurs="1" minOccurs="0">
+			</xs:element>
+			<xs:element name="CustomerNameSoldTo" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CustomerNameShippedTo" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CustomerSAPcodeSoldTo" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CustomerSAPCodeShippedTo" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="TotalQuantity" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasurementQuantity" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DamagedQuantity" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MarketValueOfAffectedGoods" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CurrencyType" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DeliveryNumber2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+		<!-- EQQKO, 2017-10-20: Added DeliveryItem2 for import from GBT -->
+			<xs:element name="DeliveryItem2" type="xs:token" maxOccurs="1" minOccurs="0">
+			</xs:element>
+			<xs:element name="CustomerNameSoldTo2" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CustomerNameShippedTo2" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CustomerSAPCodeSoldTo2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CustomerSAPCodeShippedTo2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DistributorRetailer2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DepotName2" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="TotalQuantity2" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasurementQuantity2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DamagedQuantity2" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MarketValueOfAffectedGoods2" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CurrencyType2" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CommentsOnDelivery" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AttachmentsForDelivery" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="Applications" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="ApplicationDate" type="xs:date" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ApplicationMethod" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="CropStageApplication" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="GrowthStageAtApplication" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="CropVigourAtApplication" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ApplicationVolume" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitOfMeasureVolume" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ProductBrandNameAdjuvant" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ApplicationRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitOfMeasureRate" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="TotalAmountOfUsage" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitOfMeasureUsage" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PriorAppliedProducts" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="ProductName" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="SpecifiedContentPrior" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitSpecifiedContentPrior" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="FormulationTypePrior" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ProductRate" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DateOfLastApplication" type="xs:date" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CommentOnApplication" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UserALicensedApplicator" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ApplicationRecordAdded" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ApplicationRecord" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="BufferZone" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureBuffer" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="NonBCSPrdApplInVicinity" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SeedBrandVariety" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SeedLot" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SeedCompany" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="FurtherInformationOnSeed" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ProcessorName" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SeedTreatmentFacility" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ProcessorLocation" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="LoadingTestResult" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="GerminationTestResult" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="VigorTestResult" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SowingDatePlanted" type="xs:date" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SeedRatePlants" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureSeedPlants" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CommentOnSowing" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DescriptionOfMachineryUsed" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="NozzleType" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DropletSizeOfNozzles" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="Symptoms" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="IdentifierName" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="SymptomType" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="SymptomSeverity" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="DurationOfSymptom" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitDurationOfSymptom" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ExposureToOnsetOfSymptom" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitsOfMeasureOnset" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="OutcomeOfSymptom" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="SpecifyDisability" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FirstAid" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="IdentifierName" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="FirstAidMedicalTreatment" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="TypeOfMedicalTreatment" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="DecontaminationProcedures" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LabTestsPerformedMD" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="LabTestsAttachment" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="Circumstances" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="TreatedCropG" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="GrowthStageAtApplication" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="DistanceHivesToTreatedArea" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitOfMeasureDistance" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="FloweringWeedsNearTheCrop" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="CropInVicinityBeeAttractiv" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="SignificantSprayDriftOccured" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TimeBetwTreatmAndDetect" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureTime" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CommentsOnCircumstances" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+		<!-- EMKLU, 2017-11-30:Added "Organization Collecting Sample" as part of CR-264 -->
+			<xs:element name="OrganizationCollectingSample" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SamplingTimes" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="NumberOfSamples" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="QuantityOfSamples" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureSamples" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ReasonForSampling" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PercentOfOrganicCarbon" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<!-- xs:element name="SoilType" type="xs:token" minOccurs="0" maxOccurs="1"></xs:element -->
+			<xs:element name="SoilSeriesTexture" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="HydraulicConductivity" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AquiferDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="HydraulicGroup" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PhOfWater" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="MaxRainFall" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureRainfall" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AnnualTotalRain" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureTotalRain" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AnnualTotalIrrigation" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureTotalIrr" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="WeatherComments" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<!-- xs:element name="SourceOfWeatherInformation" type="xs:string" minOccurs="0" 
+				maxOccurs="1"></xs:element -->
+			<xs:element name="YearsOfProductUsage" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="WellIdUse" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DepthToWater" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureDepth" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ScreenedInterval" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureScreened" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PartOfALargerStudyEnv" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="Irrigation" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="IrrigationVolume" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitOfMeasureIrrigation" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="IrrigationTiming" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="TypeOfIrrigation" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AnalyticalInformation" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+            <!-- EQQKO, 2016-05-30: Added fields: SamplingDate, SampleType, TypeOfSubstance, ToleranceLevels, UnitOfToleranceLevels -->
+						<xs:element name="SamplingDate" type="xs:date" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="MaterialAnalyzed" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="SampleType" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="AnalyticalLab" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="AnalyticalMethod" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="LevelOfResidueFound" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitOfMeasureResidue" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="SubstanceAnalyzed" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="TypeOfSubstance" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ToleranceLevels" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitOfToleranceLevels" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="LimitOfQuantificationLOQ" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="UnitOfMeasureLOQ" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SampleCollectingStoring" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SampleCollectingAttachments" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="LabTestsPerformed" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="LabResults" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PollenAnalysisDone" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PollenAnalysisResult" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CommentOnAnalytics" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AreaAmountAffected" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureAffected" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AreaAmountTreated" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UnitOfMeasureTreated" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PotentialYieldReduction" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="TotalPotentialFinancialRisk" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CurrencyPotentialCosts" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+<!-- EQQKO, 2018-01-26: Enabling import of TotalPotentialFinancialRiskEUR for migration CAIR_to_CAIRnew -->
+			<xs:element name="TotalPotentialFinancialRiskEUR" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PotentialFinancialRisk" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="AmountFinancialRisk" type="xs:long" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="CurrencyTypeFinancialRisk" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="TypeOfPotentialFinanRisk" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="PotentialFinanRiskDetails" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CommentsOnFinancialRisk" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SummaryOfInvestigation" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SeverityCAIRnew" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AttributionToBCSProduct" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ComplaintJustified" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SettlementRequired" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CustomerExpectations" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SettlementProposal" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SettlementAccepted" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SourceOfRecommendation" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="RecommendationSheet" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ApprovedPayment" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CurrencyTypePayment" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ApprovalDate" type="xs:date" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SettlementAttachments" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CorrectiveActionsComment" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CorrectiveActionsAttachments" type="attachedDocumentsType" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ReworkDestructionComments" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			
+			<xs:element name="IncidentLocation" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="OriginOfCase" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			
+			<xs:element name="Deficiency" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="ReasonForTheDamage" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="DetailsOfTheDamage" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TotalActualCosts" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CurrencyActualCosts" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+<!-- EQQKO, 2018-01-26: Enabling import of TotalActualCostsEUR for migration CAIR_to_CAIRnew -->
+			<xs:element name="TotalActualCostsEUR" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+
+			<xs:element name="ActualCosts" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="AmountActualCosts" type="xs:long" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="CurrencyTypeActualCosts" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="TypeOfActualCost" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ActualCostDetails" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CommentsOnActualCosts" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			
+			<!-- EMJBF, 2017-06-02: Added field: SummaryOfActionsTaken -->
+			<xs:element name="SummaryOfActionsTaken" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			
+			<xs:element name="AuthorityReporting" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="Authority" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="AuthorityClassification" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="ReportSubmitted" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="AuthorityUpdateNeeded" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="SubmissionNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="RegistrationNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="RegistrantsReferenceNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="RegistrantsRegistrNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="RegistrantsName" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="RegistrantsContactPerson" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="RegistrantsContactPhone" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="RegistrationUnknown" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="Frequency" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+						<xs:element name="PartOfALargerStudy" type="xs:token" minOccurs="0" maxOccurs="1">
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+
+
+
+
+
+			<xs:element name="AllegePhytotoxNonTarget" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AffectedNonTarget" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PresentApplicNonTarget" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ExplicitLabelWarningNonT" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AllegePhytotoxTargetCrop" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PhytotoxLethalTargetCrop" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PhytotoxNLWarnTargetCr" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AllegeDrift" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ConsistantAnticipatedDrift" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AcresAffectedDrift" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="WhatAffected" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="DistanceAffected" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="PlantSpeciesAffected" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ToxicEffectPest" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SecondaryPest" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ExposedConcentrate" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="SampleAnalyzed" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+
+
+			<xs:element name="CreationDate" type="xs:date" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CloseBy" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CloseOn" type="xs:date" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CancelBy" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CancelOn" type="xs:date" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="Stakeholders" type="xs:token" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+
+			<xs:element name="Reporter" type="caseAddressListType"/>
+
+
+
+
+
+
+			<xs:element name="GrowerCustomerComplainant" type="caseAddressListType">
+			</xs:element>
+
+
+
+
+
+
+			<xs:element name="DistributorRetailerAgronomist" type="caseAddressListType">
+			</xs:element>
+			<xs:element name="Registrant" type="caseAddressListType"/>
+
+
+
+
+
+
+			<xs:element name="RegistrantContact" type="caseAddressListType">
+			</xs:element>
+
+
+			<xs:element name="Originator" type="caseAddressListType"/>
+
+			<xs:element name="AdditionalPerson1" type="caseAddressListType"/>
+
+
+			<xs:element name="AdditionalPerson2" type="caseAddressListType"/>
+			<xs:element name="AdditionalPerson3" type="caseAddressListType"/>
+			<xs:element name="AdditionalPerson4" type="caseAddressListType"/>
+			<xs:element name="AdditionalPerson5" type="caseAddressListType"/>
+
+
+			<xs:element name="ExternalInvestigationComment" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+
+			<xs:element name="PackSize2" type="xs:string" minOccurs="0" maxOccurs="1">
+			</xs:element>
+
+			<xs:element name="PackSizeUnit2" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+
+			<xs:element name="UDF_01" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_02" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_03" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_04" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_05" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_06" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_07" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_08" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_09" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_10" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_11" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_12" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_13" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_14" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_15" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_16" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_17" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_18" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_19" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_20" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_21" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_22" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_23" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_24" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_25" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_26" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_27" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_28" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_29" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_30" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_31" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_32" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_33" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_34" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_35" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_36" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_37" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_38" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_39" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_40" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_41" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_42" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_43" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_44" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_45" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_46" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_47" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_48" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_49" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="UDF_50" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="emailType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="CaseId" type="xs:token" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="CreationDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="FromPerson" type="caseAddressListType" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="ToPersons" type="caseAddressListType" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="CCPersons" type="caseAddressListType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Title" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="Body" type="xs:token" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="AttachedDocuments" type="attachedDocumentsType" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="caseAddressListType">
+		<xs:sequence>
+			<xs:element name="Role" type="xs:token" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Name" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Street" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PostalCode" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="City" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Province" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Phone" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Email" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Fax" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CommentOnAddress" type="xs:token" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="attachedDocumentsType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="fileName" type="xs:token"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="importIssueType">
+        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+        	<xs:element minOccurs="0" maxOccurs="1" name="recordType" type="xs:token"/>
+        	<xs:element minOccurs="0" maxOccurs="1" name="issueId" type="xs:token"/>
+        	<xs:element minOccurs="0" maxOccurs="1" name="AssignedTo" type="caseAddressListType"/>
+        	<xs:element maxOccurs="unbounded" minOccurs="0" name="TeamMembers" type="caseAddressListType"/>
+        	<xs:element minOccurs="1" maxOccurs="1" name="Title" type="xs:string"/>
+        	<xs:element minOccurs="1" maxOccurs="1" name="IssueSeverityEstimation" type="xs:token"/>
+        	<xs:element minOccurs="1" maxOccurs="1" name="IssueType" type="xs:token"/>
+        	<xs:element minOccurs="1" maxOccurs="1" name="IssueSubType" type="xs:token"/>
+        	<xs:element minOccurs="0" maxOccurs="1" name="IssueDetailedDecription" type="xs:token"/>
+        	<xs:element minOccurs="0" maxOccurs="1" name="RelatedCase" type="xs:token"/>
+        	<xs:element minOccurs="0" maxOccurs="1" name="FilterSettingsWaterCockpit" type="xs:token"/>
+        </xs:sequence>
+      </xs:complexType>
+</xs:schema>

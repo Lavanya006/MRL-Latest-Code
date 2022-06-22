@@ -1,0 +1,29 @@
+2022-03-01 16:07:21.249  INFO 14944 --- [main] com.mt_ag.bayer.cmc.Main                 : Starting Main v1.1.0-SNAPSHOT on WDEV021972 with PID 14944 (C:\Users\EHIAZ\eclipse-cmc\cmc-master\DEPLOYABLES\cmc-1.1.0.jar started by EHIAZ in C:\Users\EHIAZ\eclipse-cmc\cmc-master\DEPLOYABLES)
+2022-03-01 16:07:21.284 DEBUG 14944 --- [main] com.mt_ag.bayer.cmc.Main                 : Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2022-03-01 16:07:21.286  INFO 14944 --- [main] com.mt_ag.bayer.cmc.Main                 : No active profile set, falling back to default profiles: default
+2022-03-01 16:07:42.296  INFO 14944 --- [main] c.mt_ag.bayer.cmc.core.init.SystemInit   : No need to initialize Users
+2022-03-01 16:07:42.328  INFO 14944 --- [main] c.mt_ag.bayer.cmc.core.init.SystemInit   : No need to initialize Countries
+2022-03-01 16:07:42.362  INFO 14944 --- [main] c.mt_ag.bayer.cmc.core.init.SystemInit   : No need to initialize Data Sources
+2022-03-01 16:07:42.385  INFO 14944 --- [main] c.mt_ag.bayer.cmc.core.init.SystemInit   : No need to initialize Substances
+2022-03-01 16:07:42.456  INFO 14944 --- [main] c.mt_ag.bayer.cmc.core.init.SystemInit   : No need to initialize Crops
+2022-03-01 16:07:42.489  INFO 14944 --- [main] c.mt_ag.bayer.cmc.core.init.SystemInit   : No need to initialize Units
+2022-03-01 16:07:42.528  INFO 14944 --- [main] c.mt_ag.bayer.cmc.core.init.SystemInit   : No need to initialize Mrls
+2022-03-01 16:07:52.609  INFO 14944 --- [main] c.m.bayer.cmc.core.schedule.UKScheduler  : The next UK Grabbing will be on 2022-03-27T23:59:59
+2022-03-01 16:07:56.999  INFO 14944 --- [main] c.m.bayer.cmc.core.schedule.DKScheduler  : The next DK Grabbing will be on 2022-03-27T23:59:59
+2022-03-01 16:07:58.188  INFO 14944 --- [main] c.m.b.cmc.core.schedule.RASFFScheduler   : The next RASFF Grabbing will be on 2022-03-12T23:59:59
+2022-03-01 16:07:59.800  INFO 14944 --- [main] com.mt_ag.bayer.cmc.Main                 : Started Main in 40.114 seconds (JVM running for 42.459)
+2022-03-01 16:08:36.455  INFO 14944 --- [http-nio-9090-exec-1] c.m.b.cmc.controller.GrabberController   : Grabbing UK manually per given datasource by user: 2022-03-01T16:08:36.455727400
+2022-03-01 16:08:38.472  INFO 14944 --- [http-nio-9090-exec-1] c.m.bayer.cmc.core.schedule.UKScheduler  : Grabbing UK manually now 2022-03-01T16:08:38.471709100
+2022-03-01 16:08:38.589  INFO 14944 --- [http-nio-9090-exec-1] c.m.bayer.cmc.core.schedule.UKScheduler  : The next UK Grabbing will be on 2022-03-27T23:59:59
+2022-03-01 16:08:38.700  INFO 14944 --- [UK] c.m.bayer.cmc.core.schedule.UKScheduler  : Grabbing from UK at: Execution [id=184461, dateTime=2022-03-01T23:59:59, dataSourceName=UK]
+2022-03-01 16:08:40.528  INFO 14944 --- [UK] c.mt_ag.bayer.cmc.core.mapping.UKMapper  : UK Measurements grabbed: 0
+2022-03-01 16:08:41.998  INFO 14944 --- [UK] c.m.bayer.cmc.core.schedule.UKScheduler  : The next UK Grabbing will be on 2022-03-31T23:59:59
+2022-03-01 16:09:02.281  INFO 14944 --- [http-nio-9090-exec-4] c.m.b.cmc.controller.GrabberController   : Grabbing DK manually per given datasource by user: 2022-03-01T16:09:02.280629700
+2022-03-01 16:09:05.723  INFO 14944 --- [http-nio-9090-exec-4] c.m.bayer.cmc.core.schedule.DKScheduler  : Grabbing DK manually now 2022-03-01T16:09:05.723626800
+2022-03-01 16:09:05.777  INFO 14944 --- [http-nio-9090-exec-4] c.m.bayer.cmc.core.schedule.DKScheduler  : The next DK Grabbing will be on 2022-03-27T23:59:59
+2022-03-01 16:09:05.853  INFO 14944 --- [DK] c.m.bayer.cmc.core.schedule.DKScheduler  : Grabbing from DK at: Execution [id=184462, dateTime=2022-03-01T23:59:59, dataSourceName=DK]
+2022-03-01 16:09:10.963  INFO 14944 --- [DK] c.m.bayer.cmc.core.schedule.DKScheduler  : The next DK Grabbing will be on 2022-03-31T23:59:59
+2022-03-01 16:09:50.951  INFO 14944 --- [http-nio-9090-exec-8] c.m.b.cmc.controller.GrabberController   : Grabbing RASFF manually per given datasource by user: 2022-03-01T16:09:50.951247600
+2022-03-01 16:09:51.703  INFO 14944 --- [http-nio-9090-exec-8] c.m.b.cmc.core.schedule.RASFFScheduler   : Grabbing RASFF manually now 2022-03-01T16:09:51.703247700
+2022-03-01 16:09:51.754  INFO 14944 --- [http-nio-9090-exec-8] c.m.b.cmc.core.schedule.RASFFScheduler   : The next RASFF Grabbing will be on 2022-03-12T23:59:59
+2022-03-01 16:09:51.827  INFO 14944 --- [RASFF] c.m.b.cmc.core.schedule.RASFFScheduler   : Grabbing from RASFF at: Execution [id=184463, dateTime=2022-03-01T23:59:59, dataSourceName=RASFF]

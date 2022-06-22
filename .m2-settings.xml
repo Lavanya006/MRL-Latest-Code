@@ -1,0 +1,9 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0">
+    <servers>
+        <server>
+            <id>snapshot.nexus.mt-ag.com</id>
+            <username>nexus</username>
+            <password>nexus01!</password>
+        </server>
+    </servers>
+</settings>

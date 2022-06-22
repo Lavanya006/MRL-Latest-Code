@@ -1,0 +1,85 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <div class="container">
+      <div class="row">
+        
+          <div class="col-md-12">
+          <form>
+          <div id="contact-form" class="form-container" data-form-container>
+          <div class="row">
+            <div class="form-title">
+              <span>Crop Configuration</span>
+            </div>
+          </div>
+          <div class="input-container">
+            <div class="row">
+                <select class="req-input" style="background-color: white"  type="text" data-min-length="8" placeholder="Crop name" (change)="selectCrop(selectorCrop.value)" #selectorCrop>
+                  <option disabled selected value> -- select a crop -- </option>
+                  <option *ngFor="let cropElement of croplist" [value]="cropElement.id" id="{{cropElement.id}}">{{cropElement.name}}</option>
+                </select>
+            </div>
+            <div class="row">
+              <span class="req-input">
+                <span class="input-status" data-toggle="tooltip" data-placement="top" title="Show alternativnames."> </span>
+                <input type="email" placeholder="Existing Alternativnames" name="existingAlternativ" id ="existingAlternativ">
+              </span>
+            </div>
+            <div class="row">
+              <span class="req-input">
+                <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please add alternativnames."> </span>
+                <input type="email" placeholder="Please add another alternativenames" name="AddingAlternativ" id="AddingAlternativ">
+              </span>
+            </div>
+            <div class="row submit-row">
+              <button type="button" class="btn btn-block submit-form" (click) ="saveAlternativNames()">Save</button>
+            </div>
+          </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--<div class="container">
+        <div class="row">
+          
+            <div class="col-md-12">
+            <form>
+            <div id="contact-form" class="form-container" data-form-container>
+            <div class="row">
+              <div class="form-title">
+                <span>CropGroup Name</span>
+              </div>
+            </div>
+            <div class="input-container">
+              <div class="row">
+                  <select class="req-input" style="background-color: white"  type="text" data-min-length="8" placeholder="Crop Group name" (change)="selectGroupCrop(selectorCropGroup.value)" #selectorCropGroup>
+                    <option disabled selected value> -- select a cropgroup -- </option>
+                    <option *ngFor="let cropGroupElement of cropGrouplist | async" [value]="cropGroupElement.id" id="{{cropGroupElement.id}}">{{cropGroupElement.name}}</option>
+                  </select>
+              </div>
+              <div class="row">
+                <span class="req-input">
+                  <span class="input-status" data-toggle="tooltip" data-placement="top" title="Show dependency."> </span>
+                  <input type="email" placeholder="Existing Alternativnames" name="existingDependencies" id ="existingDependencies">
+                </span>
+              </div>
+              <div class="row">
+                <span class="req-input">
+                  <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please add alternativnames."> </span>
+                  <input type="email" placeholder="Please add another alternativenames" name="AddingDependencies" id="AddingDependencies">
+                </span>
+              </div>
+              <div class="row submit-row">
+                <button type="button" class="btn btn-block submit-form" (click) ="saveDependencies()">Save</button>
+              </div>
+            </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>-->
+  </body>
+</html>

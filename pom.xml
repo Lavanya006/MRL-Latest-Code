@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mt_ag.bayer.cmc</groupId>
+    <artifactId>cmc-parent</artifactId>
+    <version>1.1.0</version>
+    <name>CMC Parent</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <ojdbc6.version>11.2.0.3</ojdbc6.version>
+        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+        <cmc.version>1.1.0</cmc.version>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.7.RELEASE</version>
+    </parent>
+
+    <modules>
+        <module>cmc-grabber</module>
+        <module>cairnew-soap-client</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>nexus.mt-ag.com</id>
+            <url>https://nexus.mt-ag.com/repository/mt-maven</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>public.nexus.mt-ag.com</id>
+            <url>https://nexus.mt-ag.com/repository/public</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus.mt-ag.com</id>
+            <url>https://nexus.mt-ag.com/repository/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>release.nexus.mt-ag.com</id>
+            <name>MT AG Nexus</name>
+            <url>https://nexus.mt-ag.com/repository/mt-maven</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot.nexus.mt-ag.com</id>
+            <name>MT AG Nexus</name>
+            <url>https://nexus.mt-ag.com/repository/mt-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>${ojdbc6.version}</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>${ojdbc6.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

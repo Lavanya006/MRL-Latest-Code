@@ -1,0 +1,25 @@
+<div [@routerTransition]>
+    <!--<app-page-header [heading]="'Charts'" [icon]="'fa-bar-chart-o'"></app-page-header>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <div class="container">
+      <div class="row col-md-12">                
+          <h2 class="text-muted">Grabber Configuration</h2>
+        </div>
+        <div class="row col-md-12">  
+        <div class="col-3">
+          <div id="contact-form" class="form-container" data-form-container>
+            <select class="req-input" style="background-color: white"  type="text" data-min-length="8" placeholder="Grabber name" (change)="selectGrabber(selectorGrabber.value)" #selectorGrabber>
+                <option disabled selected value> -- select a grabber -- </option>
+                <option *ngFor="let grabber of grabberlist" [value]="grabber.id" id="{{grabber.id}}">{{grabber.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-6">
+            <span id="lastExecution"></span>
+    </div>
+        <div class="col-3">
+            <button (click)="startGrabber()" class="btn btn-primary mb-2" style="background-color:#00BCD4;border-color:#00BCD4;">Start</button>
+    </div>
+</div>
+</div>
+</div>

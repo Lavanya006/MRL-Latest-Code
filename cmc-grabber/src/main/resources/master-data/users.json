@@ -1,0 +1,23 @@
+[
+  {
+    "username": "datamanager",
+    "password": "datamanager",
+    "administrator": false,
+    "analyst": false,
+    "datamanager": true
+  },
+  {
+    "username": "analyst",
+    "password": "analyst",
+    "administrator": false,
+    "analyst": true,
+    "datamanager": false
+  },
+  {
+    "username": "admin",
+    "password": "admin",
+    "administrator": true,
+    "analyst": true,
+    "datamanager": true
+  }
+]

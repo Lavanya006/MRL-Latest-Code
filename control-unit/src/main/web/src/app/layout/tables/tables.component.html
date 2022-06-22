@@ -1,0 +1,16 @@
+<div [@routerTransition]>
+    <nav class="nav nav-pills nav-justified" style="border-bottom: 0.5px solid black">
+        <a style="cursor:pointer" id="{{nameconfig}}" name="nameconfig" (click)= "nameconfigAnzeigen()">Crop/CropGroup Configuration</a>
+        <a style="cursor:pointer" id="{{limitconfig}}" name="limitconfig" (click)= "limitconfigAnzeigen()">Limit Configuartion</a>
+        <!--<a style="cursor:pointer" id="{{importconfig}}" name="importconfig" (click)= "importconfigAnzeigen()" >Import Configuration</a>-->
+    </nav>
+    <div *ngIf="nameconfig" >
+        <app-nameconfiguration></app-nameconfiguration>
+    </div>
+    <div *ngIf="limitconfig" >
+        <app-limitconfiguration> </app-limitconfiguration>
+    </div>
+    <!--<div *ngIf="importconfig" style="border:1px solid black">
+        <app-importconfiguration></app-importconfiguration>
+    </div>-->
+</div>

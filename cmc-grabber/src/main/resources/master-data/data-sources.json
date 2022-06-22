@@ -1,0 +1,21 @@
+[
+	{
+		"name": "RASFF",
+		"description": "European Commission – RASFF",
+		"url": "https://webgate.ec.europa.eu/rasff-window/portal/",
+		"intervalInDays": 15
+	},
+	{
+		"name": "UK",
+		"description": "Department for Environment, Food and Rural Affairs",
+		"url": "https://data.gov.uk/dataset/5d5028ef-9918-4ab7-8755-81f3ad06f308/pesticide-residues-in-food",
+		"intervalInDays": 30
+	},
+	{
+		"name": "DK",
+		"description": "National Food Institute DTU",
+		"url": "https://www.food.dtu.dk/english/publications/chemical-exposure/pesticides-in-the-diet",
+		"intervalInDays": 30
+	}
+	
+]

@@ -1,0 +1,116 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!--<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <form>
+            <div id="contact-form" class="form-container" data-form-container>
+            <div class="row">
+              <div class="form-title">
+                <span>Detection Limit Conifguration</span>
+              </div>
+            </div>
+            <div class="input-container">
+              <div class="row">
+                  <!--<select class="req-input" style="background-color: white"  type="text" data-min-length="8" placeholder="Crop Group name" (change)="selectGroupCrop(selectorCropGroup.value)" #selectorCropGroup>
+                    <option disabled selected value> -- select a cropgroup -- </option>
+                    <option *ngFor="let cropGroupElement of cropGrouplist" [value]="cropGroupElement.id" id="{{cropGroupElement.id}}">{{cropGroupElement.cropGroup}}</option>
+                  </select>
+              </div>
+              <div class="row">
+                <span class="req-input">
+                  <span class="input-status" data-toggle="tooltip" data-placement="top" title="Show dependency."> </span>
+                  <input type="email" placeholder="Existing Alternativnames" name="existingDependencies" id ="existingDependencies">
+                </span>
+              </div>
+              <div class="row">
+                <span class="req-input">
+                  <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please add alternativnames."> </span>
+                  <input type="email" placeholder="Please add another alternativenames"  name="AddingDependencies" id="AddingDependencies">
+                </span>
+              </div>
+              <div class="row submit-row">
+                <button type="button" class="btn btn-block submit-form" >Save</button>
+              </div>
+            </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>-->
+      <!--MRL CONFIGURATION-->
+      <div class="container">
+          <div class="row">
+            
+              <div class="col-md-12">
+              <form>
+              <div id="contact-form" class="form-container" data-form-container>
+              <div class="row">
+                <div class="form-title">
+                  <span>Maximum Residue Limit Configuration</span>
+                </div>
+              </div>
+              <div class="input-container">
+                <div class="row">
+                    <p style="padding-top: 12px; padding-right: 10px">Crop: </p><select class="req-input" style="background-color: white; width: 25%"  type="text" data-min-length="8" placeholder="Crop name" (change)="selectCrop(selectorCrop.value)" #selectorCrop>
+                      <option disabled selected value> -- select a crop -- </option>
+                      <option *ngFor="let cropElement of sourcemrllist" [(ngModel)]="cropElement.crop.id" [ngModelOptions]="{standalone: true}" ngDefaultControl [value]="cropElement.crop.id" id="{{cropElement.crop.id}}">{{cropElement.crop.name}}</option>
+                    </select>
+                    <p style="padding-top: 10px; padding-right: 10px; padding-left: 10px">Country: </p><select class="req-input" style="background-color: white; width: 25%"  type="text" data-min-length="8" placeholder="Country Name" (change)="selectCountry(selectorCountry.value)" #selectorCountry>
+                        <option disabled selected value> -- select a country -- </option>
+                        <option *ngFor="let cropElement of mrllist | mrllistfilter: [focusedCrop, focusedCountry, focusedSubstance]" [(ngModel)]="cropElement.originCountry.name" [ngModelOptions]="{standalone: true}" ngDefaultControl  [value]="cropElement.originCountry.name" id="{{cropElement}}">{{cropElement.originCountry.name}}</option>
+                    </select>
+                    <p style="padding-top: 10px; padding-right: 10px; padding-left: 10px">Substance: </p><select class="req-input" style="background-color: white; width: 25%"  type="text" data-min-length="8" placeholder="Country Name" (change)="selectSubstance(selectorSubstance.value)" #selectorSubstance>
+                        <option disabled selected value> -- select a substance -- </option>
+                        <option *ngFor="let cropElement of mrllist | mrllistfilter: [focusedCrop, focusedCountry, focusedSubstance]" [(ngModel)]="cropElement.substance.name" [ngModelOptions]="{standalone: true}" ngDefaultControl  [value]="cropElement.substance" id="{{cropElement}}">{{cropElement.substance.name}}</option>
+                      </select>
+                </div>
+              </div>
+                <!--Overview about MRL Entries-->
+                <div class="container" style="padding: 20px; padding-right: 35px; padding-left:35px; ">
+                    <div class="row" style="border-bottom: 0.5px inset black">
+                      <div class="col-md-2 entry ">
+                          Crop
+                        </div>
+                        <div class="col-md-3 entry ">
+                          Country
+                        </div>
+                        <div class="col-md-3 entry ">
+                        Substance
+                        </div>
+                        <div class="col-md-2 entry ">
+                          Unit
+                        </div>
+                        <div class="col-md-2 entry ">
+                          MRL
+                        </div>
+                    </div>
+                    <div class="row" style="border-bottom: solid black 0.5px" *ngFor="let entry of mrllist | mrllistfilter: [focusedCrop, focusedCountry, focusedSubstance]">
+                      <div class="col-md-2 entry ">
+                        {{entry.crop.name}}
+                      </div>
+                      <div class="col-md-3 entry ">
+                        {{entry.originCountry.name}}
+                      </div>
+                      <div class="col-md-3 entry ">
+                        {{entry.substance.name}}
+                      </div>
+                      <div class="col-md-2 entry">
+                        {{entry.unit.name}}
+                      </div>
+                      <div class="col-md-2 entry">
+                        {{entry.residueLevel}}
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              </form>
+                  </div>
+                </div>
+              </div>
+
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cmc-parent</artifactId>
+        <groupId>com.mt_ag.bayer.cmc</groupId>
+        <version>1.1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>cairnew-soap-client</artifactId>
+    <name>CairNew Soap Client</name>
+    <version>1.1.0-SNAPSHOT</version>
+
+    <dependencies>
+    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.tomcat</groupId>
+					<artifactId>tomcat-jdbc</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+    
+        <!-- Apache Axis2 -->
+        <!-- <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-kernel</artifactId>
+            <version>1.7.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-xmlbeans</artifactId>
+            <version>1.7.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-transport-local</artifactId>
+            <version>1.7.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-transport-http</artifactId>
+            <version>1.7.9</version>
+        </dependency> -->
+        <!-- https://mvnrepository.com/artifact/org.apache.axis2/axis2-kernel -->
+<dependency>
+    <groupId>org.apache.axis2</groupId>
+    <artifactId>axis2-kernel</artifactId>
+    <version>1.8.0</version>
+</dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.axis2/axis2-xmlbeans -->
+<dependency>
+    <groupId>org.apache.axis2</groupId>
+    <artifactId>axis2-xmlbeans</artifactId>
+    <version>1.8.0</version>
+</dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.axis2/axis2-transport-local -->
+<dependency>
+    <groupId>org.apache.axis2</groupId>
+    <artifactId>axis2-transport-local</artifactId>
+    <version>1.8.0</version>
+</dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.axis2/axis2-transport-http -->
+<dependency>
+    <groupId>org.apache.axis2</groupId>
+    <artifactId>axis2-transport-http</artifactId>
+    <version>1.8.0</version>
+</dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.axis2/axis2-adb -->
+<dependency>
+    <groupId>org.apache.axis2</groupId>
+    <artifactId>axis2-adb</artifactId>
+    <version>1.8.0</version>
+</dependency>
+        
+    </dependencies>
+</project>

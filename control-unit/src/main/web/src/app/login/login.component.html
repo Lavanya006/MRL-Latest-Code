@@ -1,0 +1,23 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+            <h1>Crop Monitoring Cockpit
+            </h1>
+            <h2>Control Unit</h2>
+            <form role="form">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" ng-model="name" class="form-control input-underline input-lg" id="" placeholder="{{ 'Username' | translate }}" #u>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="{{ 'Password' | translate }}" #p>
+                    </div>
+                </div>
+                <a class="btn rounded-btn" (click)="onLoggedin(u.value, p.value)">{{ 'Log in' | translate }}</a>
+                &nbsp;
+            </form>
+        </div>
+    </div>
+</div>

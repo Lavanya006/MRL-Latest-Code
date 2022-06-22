@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ImportService" targetNamespace="http://www.sparta.org/ImportService/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.sparta.org/ImportService/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsd1="http://cairnew.bcs.cnb/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://www.sparta.org/ImportService/">
+            <xsd:import namespace="http://cairnew.bcs.cnb/" schemaLocation="importCairNew_Dev.xsd">
+            </xsd:import>
+            <xsd:element name="createCorrespondenceRecordRequest" type="xsd1:emailType"/>
+            <xsd:element name="createAndUpdateCaseRecordRequest" type="xsd1:importCaseType"/>
+            <xsd:element name="createAndUpdateIssueRecordRequest" type="xsd1:importIssueType"/>
+
+            <xsd:element name="createAndUpdateCaseRecordResponse" type="tns:createAndUpdateCaseRecordResponseType"/>
+            <xsd:element name="createAndUpdateIssueRecordResponse" type="tns:createAndUpdateIssueRecordResponseType"/>
+            <xsd:element name="createCorrespondenceRecordResponse" type="tns:createCorrespondenceRecordResponseType"/>
+
+
+            <xsd:complexType name="createAndUpdateCaseRecordResponseType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1" name="responseStatus" type="xsd:integer"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="errMessages" type="xsd:string">
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="processingType" type="xsd:string">
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="caseCreatedID" type="xsd:string">
+                    </xsd:element>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="optionalInfo" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="createCorrespondenceRecordResponseType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1" name="responseStatus" type="xsd:integer"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="errMessages" type="xsd:string">
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="processingType" type="xsd:string">
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="caseCreatedID" type="xsd:string">
+                    </xsd:element>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="optionalInfo" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="createAndUpdateIssueRecordResponseType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1" name="responseStatus" type="xsd:integer"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="errMessages" type="xsd:string">
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="processingType" type="xsd:string">
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="issueCreatedID" type="xsd:string">
+                    </xsd:element>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="optionalInfo" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="createAndUpdateIssueRecordRequest">
+        <wsdl:part name="createAndUpdateIssueRecordRequest" element="tns:createAndUpdateIssueRecordRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createAndUpdateCaseRecordResponse">
+        <wsdl:part name="createAndUpdateCaseRecordResponse" element="tns:createAndUpdateCaseRecordResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createCorrespondenceRecordRequest">
+        <wsdl:part name="createCorrespondenceRecordRequest" element="tns:createCorrespondenceRecordRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createCorrespondenceRecordResponse">
+        <wsdl:part name="createCorrespondenceRecordResponse" element="tns:createCorrespondenceRecordResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createAndUpdateCaseRecordRequest">
+        <wsdl:part name="createAndUpdateCaseRecordRequest" element="tns:createAndUpdateCaseRecordRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createAndUpdateIssueRecordResponse">
+        <wsdl:part name="createAndUpdateIssueRecordResponse" element="tns:createAndUpdateIssueRecordResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="ImportService">
+        <wsdl:operation name="createAndUpdateIssueRecord">
+            <wsdl:input message="tns:createAndUpdateIssueRecordRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:createAndUpdateIssueRecordResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createAndUpdateCaseRecord">
+            <wsdl:input message="tns:createAndUpdateCaseRecordRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:createAndUpdateCaseRecordResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createCorrespondenceRecord">
+            <wsdl:input message="tns:createCorrespondenceRecordRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:createCorrespondenceRecordResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ImportServiceSOAP" type="tns:ImportService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="createAndUpdateCaseRecord">
+            <soap:operation soapAction="http://www.sparta.org/ImportService/createAndUpdateCaseRecord"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createCorrespondenceRecord">
+            <soap:operation soapAction="http://www.sparta.org/ImportService/createCorrespondenceRecord"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createAndUpdateIssueRecord">
+            <soap:operation soapAction="http://www.sparta.org/ImportService/createAndUpdateIssueRecord"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ImportService">
+        <wsdl:port name="ImportServicePort" binding="tns:ImportServiceSOAP">
+            <soap:address location="https://by-twbcs-d.de.bayer.cnb/ImportService/services/ImportService/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

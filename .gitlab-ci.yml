@@ -1,0 +1,15 @@
+image: maven:3-jdk-11-slim
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - mvn -B -s .m2-settings.xml -DskipTests clean package
+    - ls -la
+  artifacts:
+    paths:
+      - grabber/target/
+      - .m2/
+    expire_in: 1 hour
