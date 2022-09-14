@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -36,8 +37,13 @@ import org.springframework.stereotype.Service;
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomElement;
+import com.gargoylesoftware.htmlunit.html.DomNode;
+import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
+import com.gargoylesoftware.htmlunit.html.HtmlButton;
+import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
+import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlTable;
 import com.gargoylesoftware.htmlunit.html.HtmlTableCell;
@@ -108,12 +114,22 @@ public class RASFFMapper implements DataSourceMapper {
         	//webClient.getOptions().setCssEnabled(false);
         	webClient.getOptions().setJavaScriptEnabled(true);
         	webClient.getOptions().setThrowExceptionOnScriptError(false);
+        	//webclient.getOptions().sleep();
+        	try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         	//webClient.getOptions().setThrowExceptionOnFailingStatusCode(false);
         	//webClient.getOptions().setTimeout(100000);
         	
         	//Thread.sleep(3_000);
+        //	Thread.sleep(1000);
 			
-            page = webClient.getPage(dataSource.getUrl());
+         //   page = webClient.getPage(dataSource.getUrl());
+            page = webClient.getPage("https://webgate.ec.europa.eu/rasff-window/screen/search");
+      
             //System.out.println(page.getUrl());
         } 
         
@@ -123,15 +139,43 @@ public class RASFFMapper implements DataSourceMapper {
             return new LinkedHashSet<>();
         }
 
-        webClient.waitForBackgroundJavaScript(5000 * 2);
-        HtmlTextInput htmlTextInput = page.getHtmlElementById(SystemConstants.RASFF_KEYWORD_ID);
-        htmlTextInput.setText(substance.getName());
-        HtmlAnchor anchorForSearch = page.getAnchorByText(SystemConstants.RASFF_SEARCH_KEYWORD_CLICK_ID);
+        webClient.waitForBackgroundJavaScript(10000 * 2);
+       // HtmlButton button=page.getFirstByXPath("//*[@id=loader]");
+      //  HtmlDivision div = page.getFirstByXPath("//div[@class='col-xl-2 col-lg-2 cig-middle']/button");
+        //HtmlButton div = page.getFirstByXPath("//[@id='\\Search\\']//ancestor::div[@class='col-xl-2 col-lg-2 cig-middle']");
+      //  HtmlButton button=page.getFirstByXPath("//button[@type='submit']");
+        //HtmlButton button=page.querySelector("button[type='submit']");
+        //System.out.println(page.querySelector("button[type='submit']"));
+       
+        
+    //    HtmlButton button = (HtmlButton)page.getByXPath("./html/body/app-root/ux-layout-app-shell/div/div/div/app-search-component/div/form/div[3]/div[4]/button") ; 
+       // List<DomElement> Buttonlist = page.getByXPath("./html/body/app-root/ux-layout-app-shell/div/div/div/app-search-component/div/form/div[3]/div[4]/button") ; 
+        
+ //       List<HtmlElement> Buttonlist= (List<HtmlElement>) page.getByXPath("./html/body/app-root/ux-layout-app-shell/div/div/div/app-search-component/div/form/div[3]/div[4]/button").get(0); 
+       // HtmlButton button=(HtmlButton) Buttonlist.get(0);
+        
+         // HtmlButton button=(HtmlButton)page.getByXPath("//input[@type='submit'].get(0)");
+       // HtmlTextInput htmlTextInput = page.getHtmlElementById(SystemConstants.RASFF_KEYWORD_ID);
+        //htmlTextInput.setText(substance.getName());
+       // HtmlAnchor anchorForSearch = page.getAnchorByText(SystemConstants.RASFF_SEARCH_KEYWORD_CLICK_ID);
+       // HtmlPage pagedetails=page.getPage();
+        
+    //   List<DomElement> buttonElement = page.getByXPath("./html/body/app-root/ux-layout-app-shell/div/div/div/app-search-component/div/form/div[3]/div[4]/button");
+      //  List<?> button=page.getByXPath("//button[@type='submit']", null);
+      //    String button=page.getNamespaceURI();
+       // List<HtmlForm> Pageform = (List<HtmlForm>) page. ().get(0);
+     //   System.out.println(pagsXml());
+        //System.out.println(page.asText());
+       // System.out.println(page.asXml());
+       DomElement allElement = (DomElement) page.getDocumentElement();
+       DomNodeList<DomNode> button2 = allElement.querySelectorAll("button");
+    //    HtmlAnchor buttonLink = (HtmlAnchor) buttonElement.get(SystemConstants.FIRST_ELEMENT);
+        
         HtmlPage pageSearch = null;
         try {
-            pageSearch = anchorForSearch.click();
+            pageSearch = ((DomElement) button2).click();
         } catch (IOException e) {
-            LOGGER.warn("Could not click anchorForSearch:" + anchorForSearch);
+            LOGGER.warn("Could not click anchorForSearch:" + button2);
             webClient.close();
             return new LinkedHashSet<>();
         }

@@ -9,10 +9,15 @@ public interface NotificationService {
     String BUSINESS_SEGMENTS = "Crop Small Molecules";
 
     String MARGOT_EMAIL = "margot.boergartz@bayer.com";
+    String LAVANYA_EMAIL = "lavanya.devasenathipathi.ext@bayer.com";
+   // String MARGOT_EMAIL = "lavanya.devasenathipathi.ext@bayer.com";
 
     String MARGOT_NAME = "Margot,Boergartz";
+    String LAVANYA_NAME = "Lavanya,Devasenathipathi";
+   // String MARGOT_NAME = "Lavanya,Devasenathipathi";
 
     String LEAD_PROBLEM = "ST - Unauthorized Residues";
+  //  String LEAD_PROBLEM= "ST - Environmental / Water/ Soil / Air";
 
     String NONE = "None";
 

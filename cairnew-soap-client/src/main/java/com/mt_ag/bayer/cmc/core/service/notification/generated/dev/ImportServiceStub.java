@@ -58,7 +58,7 @@ public class ImportServiceStub extends org.apache.axis2.client.Stub {
         org.apache.axis2.context.ConfigurationContext configurationContext)
         throws org.apache.axis2.AxisFault {
         this(configurationContext,
-            "https://by-twbcs-d.de.bayer.cnb/ImportService/services/ImportService/");
+            "http://BYDE144R0RU.bayer.cnb:8080/ImportService/services/ImportService/");
     }
 
     /**
@@ -66,7 +66,7 @@ public class ImportServiceStub extends org.apache.axis2.client.Stub {
      */
     public ImportServiceStub() throws org.apache.axis2.AxisFault {
         this(
-            "https://by-twbcs-d.de.bayer.cnb/ImportService/services/ImportService/");
+            "http://BYDE144R0RU.bayer.cnb:8080/ImportService/services/ImportService/");
     }
 
     /**

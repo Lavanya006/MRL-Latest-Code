@@ -57,12 +57,12 @@ public class SystemConstants {
     //RASFF Mapper
     public static final String RASFF_MAIN_CONTENT = "mainContent";
     public static final String RASFF_RESULTS_COUNT_REGEX = "Search result: ([0-9]+) notifications";
-    public static final String RASFF_KEYWORD_ID = "keywords";
+    public static final String RASFF_KEYWORD_ID = "/div[/contains(@class,'col-xl-2 col-lg-2 cig-middle')]";
     public static final String RASFF_SEARCH_KEYWORD_CLICK_ID = "Open URL";
     public static final String RASFF_NEXT_PAGE_CLICK_ID = "Next 100";
     public static final String RASFF_RESULT_TABLE_NAME = "Result";
     public static final String RASFF_HAZARD_TABLE_NAME = "hazards";
-    public static final String RASFF_SUSPECT_XPATH = "//div[contains(@class, 'span12')]";
+    public static final String RASFF_SUSPECT_XPATH = "/div[/contains(@class, 'span12')]";
     public static final String RASFF_INFO_FIELDS_XPATH = "//span[contains(@class, 'uneditable-input')]";
     public static final String RASFF_NEXT_PAGE_XPATH = "//li[contains(@class, 'next disabled')]";
     public static final String RASFF_FOLLOW_UP_TABLE_XPATH = "//table[contains(@class, 'table table-hover table-striped')]";
@@ -77,7 +77,7 @@ public class SystemConstants {
     public static final String UK_ERROR_MESSAGE_SPREADSHEET = "COULD NOT INITIALIZE THE SpreadsheetDocument";
     public static final String UK_ERROR_MESSAGE_LINKS_ODS = "Could not fetch the ODS Links";
     public static final String UK_DOWNLOD_ODS_LINK = "//a[@data-ga-event='download']";
-    public static final String UK_TABLE_ODS_LINKS = "//table[@class='dgu-datafiles']";
+    public static final String UK_TABLE_ODS_LINKS = "//table[@class='govuk-table govuk-!-margin-bottom-4']";
     public static final String UK_NONE = "None";
     public static final String UK_DATE_OF_SAMPLING = "Date of Sampling";
     public static final String UK_MRL_REGEX = "MRL = (\\d+\\.?\\d+|\\d+)";

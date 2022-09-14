@@ -11,6 +11,10 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +41,10 @@ public class DKMapper implements DataSourceMapper {
     public static final int MIDDLE_MONTH_OF_THIRD_QUARTER = 8;
     public static final int MIDDLE_MONTH_OF_FOURTH_QUARTER = 11;
     public static final int MIDDLE_DAY_OF_THE_MONTH = 15;
-    public static final String SPREADSHEET_LINK_BEGIN = "https://www.food.dtu.dk/english/-/media/Institutter/Foedevareinstituttet/Publikationer/Pub-";
+   // public static final String SPREADSHEET_LINK_BEGIN = "https://www.food.dtu.dk/english/-/media/Institutter/Foedevareinstituttet/Publikationer/Pub-";
+    public static final String SPREADSHEET_LINK_BEGIN = "https://www.food.dtu.dk/english/-/media/institutter/foedevareinstituttet/publikationer/pub-";
 
+    
     @Autowired
     private CountryRepository countryRepository;
     @Autowired
@@ -54,9 +60,9 @@ public class DKMapper implements DataSourceMapper {
 
         HSSFWorkbook hssfWorkbook = null;
         try {
-            hssfWorkbook = new HSSFWorkbook(dataSourceInputStream);
+        	hssfWorkbook = new HSSFWorkbook(dataSourceInputStream);
         } catch (IOException e) {
-            hssfWorkbook = null;
+        	hssfWorkbook = null;
         }
 
         if (hssfWorkbook == null) {

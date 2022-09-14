@@ -40,13 +40,15 @@ public class DevNotificationService implements NotificationService {
             ImportServiceStub.ImportCaseTypeSequence sequence = new ImportServiceStub.ImportCaseTypeSequence();
 
             // <AssignedTo>
-            AssignedToCair assignedToCair = this.findAssignedToCairByCountry(measurement.getOriginCountry());
-            if (assignedToCair != null) {
+            //AssignedToCair assignedToCair = this.findAssignedToCairByCountry(measurement.getOriginCountry());
+           // if (assignedToCair != null) {
                 ImportServiceStub.CaseAddressListType assignedTo = new ImportServiceStub.CaseAddressListType();
-                assignedTo.setName(new Token(assignedToCair.getName()));
-                assignedTo.setEmail(new Token(assignedToCair.getEmail()));
+               // assignedTo.setName(new Token(assignedToCair.getName()));
+                //assignedTo.setEmail(new Token(assignedToCair.getEmail()));
+                assignedTo.setName(new Token(LAVANYA_NAME));
+                assignedTo.setEmail(new Token(LAVANYA_EMAIL));
                 sequence.setAssignedTo(assignedTo);
-            }
+         //   }
 
             // <TeamMembers>
             ImportServiceStub.CaseAddressListType teamMembers[] = new ImportServiceStub.CaseAddressListType[1];
@@ -186,7 +188,8 @@ public class DevNotificationService implements NotificationService {
                     LOGGER.error("ERROR ", m);
                 }
                 return NotificationResult.REQUEST_FAILED;
-            } else if (responseStatus == BigInteger.ONE) {
+            } 
+            else {
                 String caseCreatedID = response.getCreateAndUpdateCaseRecordResponse().getCaseCreatedID();
                 if (measurement.getOptionalData() == null) {
                     measurement.setOptionalData(new HashMap<String, String>());
@@ -201,7 +204,7 @@ public class DevNotificationService implements NotificationService {
             LOGGER.error("ERROR ", e);
             return NotificationResult.HTTP_ERROR;
         }
-        return NotificationResult.SUCCESS;
+        //return NotificationResult.SUCCESS;
     }
 
     private void updateMeasurement(Measurement measurement) {
